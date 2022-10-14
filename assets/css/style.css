@@ -35,6 +35,10 @@ h1 {
 
 }
 
+.banner{
+    position: relative;
+}
+
 .crowd {
     object-fit: cover;
     object-position: 50% 58%;
@@ -46,4 +50,14 @@ h1 {
 #f-contain {
     padding: 0px 0px;
 
+}
+
+#app-desc {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.562);
+    width: 500px;
+    height: 200px;
+    left: 7%;
+    bottom: 40%;
+    border-radius: 10px;
 }
