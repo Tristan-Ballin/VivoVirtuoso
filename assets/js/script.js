@@ -1,7 +1,19 @@
 var artistQuery = "coldplay";
 
 
+function getArtistArt(artist){
+    /*fetch("https://theaudiodb.com/api/v1/json/2/search.php?s="+artist)
+    .then(function (response) {
+        return response.json();
+        })
+    .then(function (data) {
+        var url = data.artists[0].strArtistThumb;
+        console.log(url);
+        return url;
+    })*/
+    return "Filler: Need to fix";
 
+}
 
 function getArtistRecommends(artist){
     fetch("https://floating-headland-95050.herokuapp.com/https://tastedive.com/api/similar?q="+artist+"&k=443399-ClassPro-DVSLXXJW&limit=5")
@@ -11,19 +23,31 @@ function getArtistRecommends(artist){
         })
     .then(function (data) {
         console.log("Data:");
-        console.log(JSON.stringify(data.Similar.Results));
-        console.log(data.Similar.Results);
+        var names = data.Similar.Results;
+        for (let i = 0; i < names.length; i++) {
+            //var artistName = names[i].Name;
+            var artistName = "coldplay";
+            //console.log(artistName);
+            var artistArt = getArtistArt(artist);
+            console.log(artistArt);
+            var cardEl = $("<div class='columns'></div>")
+            $("#recommendContainer").append(cardEl); 
+            //Create elements and append it to card
+            var artistNameEl = $("<h3></h3>").text(artistName);
+            $(cardEl).append(artistNameEl);
+            var artistArtEl = $("<div><img src='"+artistArt+"' alt='"+artistName+" thumbnail'></div>");
+            $(cardEl).append(artistArtEl);  
+
+        }
     })
 }
 
 function getAlbums(artistId){
     fetch("https://theaudiodb.com/api/v1/json/2/album.php?i="+artistId)
     .then(function (response) {
-        console.log("TADB Album response gotten");
         return response.json();
         })
     .then(function (data) {
-        console.log("Data:");
         var albums = data.album;
         for (let i = 0; i < 5; i++) {
             var albumArt = albums[i].strAlbumThumb;
@@ -31,13 +55,10 @@ function getAlbums(artistId){
             var albumYear = albums[i].intYearReleased;
             var albumGenre = albums[i].strStyle;
             var albumLabel = albums[i].strLabel;
-            console.log(albumName);
-            console.log(albumArt);
-            console.log(albumYear);
             
             //Create card and append it to body
             var cardEl = $("<div class='columns'></div>")
-            $("body").append(cardEl); 
+            $("#albumContainer").append(cardEl); 
 
             var leftEl = $("<span class='column is-2'></span>")
             $(cardEl).append(leftEl); 
@@ -60,27 +81,31 @@ function getAlbums(artistId){
 function getArtistID(artist){
     fetch("https://theaudiodb.com/api/v1/json/2/search.php?s="+artist)
     .then(function (response) {
-        console.log("TADB Artist response gotten");
         return response.json();
         })
     .then(function (data) {
-        console.log("ID: "+JSON.stringify(data.artists[0].idArtist));
         //parse data
         var artistArt = data.artists[0].strArtistThumb;
         var artistName = data.artists[0].strArtist;
         var artistDescr = data.artists[0].strBiographyEN;
-        /*
+        
         //Create card and append it to body
-        var cardEl = $("<div'></div>")
-        $("body").append(cardEl); 
+        var cardEl = $("<div class='columns'></div>")
+        $("article").prepend(cardEl); 
+        var leftEl = $("<span class='column is-2'></span>")
+        $(cardEl).append(leftEl); 
+        var rightEl = $("<div class='column is-9'></div>")
+        $(cardEl).append(rightEl); 
         //Create elements and append it to card
         var artistArtEl = $("<div><img src='"+artistArt+"' alt='"+artistName+" thumbnail'></div>");
+        $(leftEl).append(artistArtEl);  
         var artistNameEl = $("<h4></h4>").text(artistName);
         var artistDescrEl = $("<p></p>").text(artistDescr);
-        $(cardEl).append(artistArtEl, artistNameEl, artistDescrEl);  
-        */
+        $(rightEl).append(artistNameEl, artistDescrEl);  
+        
         getAlbums(data.artists[0].idArtist);
     })
 }
 getArtistID(artistQuery);
-//getArtistRecommends(artistQuery);
+getArtistRecommends(artistQuery);
+//getArtistArt("coldplay")
