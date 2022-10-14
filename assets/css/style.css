@@ -12,8 +12,14 @@ h6 {
     font-weight: 700;
 }
 
+header {
+    background-color: #ab9065;
+}
+
 h1{
     font-size: 48px;
     text-align: start;
+     color: #080508;
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
