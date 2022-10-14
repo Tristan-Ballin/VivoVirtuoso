@@ -35,7 +35,7 @@ h1 {
 
 }
 
-img {
+.crowd {
     object-fit: cover;
     object-position: 50% 58%;
     overflow: hidden;
@@ -44,6 +44,6 @@ img {
 }
 
 #f-contain {
-    padding-top: 0px;
+    padding: 0px 0px;
 
 }
