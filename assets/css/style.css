@@ -35,6 +35,10 @@ h1 {
 
 }
 
+.banner{
+    position: relative;
+}
+
 .crowd {
     object-fit: cover;
     object-position: 50% 58%;
@@ -46,4 +50,30 @@ h1 {
 #f-contain {
     padding: 0px 0px;
 
+}
+
+#info-box {
+    position: absolute;
+    text-align: center;
+    right: 33%;
+    bottom: 33%;
+}
+
+#app-desc {
+    background-color: rgba(0, 0, 0, 0.562);
+    width: 700px;
+    height: 200px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+}
+
+#input-box {
+    width: 325px;
+    background-color: rgba(0, 0, 0, 0.562);
+    border: none;
+    color: white;
+    font-size: 110%;
+    border-left: 5px;
+    border-radius: 5px;
 }
