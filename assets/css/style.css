@@ -1,3 +1,8 @@
+:root {
+    --black: #000000;
+    --tan: #ab9065;
+}
+
 body {
 font-family: Arial, Helvetica, sans-serif;
 font-size: 16px;
@@ -12,16 +17,22 @@ h6 {
     font-weight: 700;
 }
 
-header {
-    background-color: #ab9065;
+#hContain {
+    padding: 24px 12px 12px 24px;
+
 }
 
-h1{
+header {
+    background-color: var(--black);
+}
+
+h1 {
     font-size: 48px;
     text-align: start;
-     color: #080508;
+     color: var(--tan);
     font-style: italic;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 img {
@@ -34,4 +45,5 @@ img {
 
 #f-contain {
     padding-top: 0px;
+
 }
