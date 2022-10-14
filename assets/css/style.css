@@ -32,5 +32,18 @@ h1 {
      color: var(--tan);
     font-style: italic;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
+
+}
+
+img {
+    object-fit: cover;
+    object-position: 50% 58%;
+    overflow: hidden;
+    width: 100%;
+    height: 650px;
+}
+
+#f-contain {
+    padding-top: 0px;
+
 }
