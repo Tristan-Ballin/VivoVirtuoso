@@ -44,11 +44,11 @@ function getAlbums(artistId){
             var rightEl = $("<div class='column is-9'></div>")
             $(cardEl).append(rightEl); 
             //Create elements and append it to card
-            var albumArtEl = $("<img src='"+albumArt+"' alt='"+albumName+" thumbnail' height='100px' width='100px' >");
+            var albumArtEl = $("<img src='"+albumArt+"' alt='"+albumName+" thumbnail' height='100%' width='100%' >");
             $(leftEl).append(albumArtEl);
             var albumNameEl = $("<h4></h4>").text(albumName);
             var albumYearEl = $("<p></p>").text("Released: "+albumYear);
-            var albumGenreEl = $("<p></p>").text("Released: "+albumGenre);
+            var albumGenreEl = $("<p></p>").text("Genre: "+albumGenre);
             var albumLabelEl = $("<p></p>").text("Record Label: "+albumLabel);
             $(rightEl).append(albumNameEl, albumYearEl, albumGenreEl, albumLabelEl);  
             
