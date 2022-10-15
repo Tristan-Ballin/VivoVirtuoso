@@ -87,3 +87,35 @@ h1 {
     height: 75px;
     padding: 10px;
   }
+
+  #artistContainer {
+    background-color: rgba(0, 0, 0, 0.699);
+    color: aliceblue;
+    border-radius: 10px;
+  }
+
+
+  #art-bg {
+    background-image: url("../images/bw-stage-artist.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  #albumContainer {
+    background-color: rgba(0, 0, 0, 0.699);
+    color: aliceblue;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 30px;
+  }
+
+  #recommendContainer {
+    background-color: rgba(0, 0, 0, 0.699);
+    color: aliceblue;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
