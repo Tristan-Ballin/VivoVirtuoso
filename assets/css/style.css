@@ -17,7 +17,7 @@ h6 {
     font-weight: 700;
 }
 
-section {
+.nav-bars {
     background-color: var(--black);
 }
 
@@ -35,10 +35,8 @@ h1 {
 
 }
 
-
-
 .banner{
-    background-image: url("/assets/images/orange-crowd.jpg");
+    background-image: url("../images/orange-crowd.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -64,6 +62,10 @@ h1 {
     margin: auto;
 }
 
+#input-container {
+    margin: 5px;
+}
+
 #input-box {
     width: 325px;
     background-color: rgba(0, 0, 0, 0.699);
@@ -78,7 +80,6 @@ h1 {
 #searchButton {
     height: 25px;
     width: 65px;
-    margin: 5px;
 }
 
 ::-webkit-input-placeholder {
