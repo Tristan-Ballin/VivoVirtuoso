@@ -15,7 +15,7 @@ function getArtistArt(artist){
         //Create elements and append it to card
         var artistNameEl = $("<h3></h3>").text(artistName).css("text-align","center");
         $(cardEl).append(artistNameEl);
-        var artistArtEl = $("<div><img src='"+artistArt+"' alt='"+artistName+" thumbnail'></div>");
+        var artistArtEl = $("<img src='"+artistArt+"' alt='"+artistName+" thumbnail'>");
         $(cardEl).append(artistArtEl); 
     })
 
@@ -30,6 +30,8 @@ function getArtistRecommends(artist){
         })
     .then(function (data) {
         console.log("Data:");
+        var headerEl = $("<h2></h2>").text("Similar Artists").css("text-align","center");
+        $("#recommendContainer").prepend(headerEl); 
         var names = data.Similar.Results;
         for (let i = 0; i < names.length; i++) {
             //var artistName = names[i].Name;
@@ -75,7 +77,7 @@ function getAlbums(artistId){
             //Create elements and append it to card
             var albumArtEl = $("<img src='"+albumArt+"' alt='"+albumName+" thumbnail' >");
             $(leftEl).append(albumArtEl);
-            var albumNameEl = $("<h4></h4>").text(albumName);
+            var albumNameEl = $("<h3></h3>").text(albumName);
             var albumYearEl = $("<p></p>").text("Released: "+albumYear);
             var albumGenreEl = $("<p></p>").text("Genre: "+albumGenre);
             var albumLabelEl = $("<p></p>").text("Record Label: "+albumLabel);
@@ -98,7 +100,7 @@ function getArtistID(artist){
         var artistDescr = data.artists[0].strBiographyEN;
         
         //Create card and append it to body
-        var cardEl = $("<div class='columns'></div>")
+        var cardEl = $("<section class='columns' id='artistContainer'></section>")
         $("article").prepend(cardEl); 
         var leftEl = $("<span class='column is-2 is-offset-1'></span>")
         $(cardEl).append(leftEl); 
@@ -107,7 +109,7 @@ function getArtistID(artist){
         //Create elements and append it to card
         var artistArtEl = $("<div><img src='"+artistArt+"' alt='"+artistName+" thumbnail'></div>");
         $(leftEl).append(artistArtEl);  
-        var artistNameEl = $("<h4></h4>").text(artistName);
+        var artistNameEl = $("<h2></h2>").text(artistName);
         var artistDescrEl = $("<p></p>").text(artistDescr);
         $(rightEl).append(artistNameEl, artistDescrEl);  
         
