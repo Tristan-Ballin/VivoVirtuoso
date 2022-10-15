@@ -17,13 +17,13 @@ h6 {
     font-weight: 700;
 }
 
-#hContain {
-    padding: 24px 12px 12px 24px;
-
+section {
+    background-color: var(--black);
 }
 
-header {
-    background-color: var(--black);
+#hContain {
+    padding: 12px 12px 12px 24px;
+
 }
 
 h1 {
@@ -60,7 +60,7 @@ h1 {
 }
 
 #app-desc {
-    background-color: rgba(0, 0, 0, 0.562);
+    background-color: rgba(0, 0, 0, 0.699);
     width: 700px;
     height: 200px;
     border-radius: 10px;
@@ -70,10 +70,21 @@ h1 {
 
 #input-box {
     width: 325px;
-    background-color: rgba(0, 0, 0, 0.562);
+    background-color: rgba(0, 0, 0, 0.699);
     border: none;
     color: white;
     font-size: 110%;
     border-left: 5px;
     border-radius: 5px;
+    padding: 2px 5px 2px 5px;
 }
+
+#searchButton {
+    height: 25px;
+    width: 65px;
+    margin: 5px;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.699) !important;
+  }
