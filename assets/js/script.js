@@ -2,16 +2,23 @@ var artistQuery = "coldplay";
 
 
 function getArtistArt(artist){
-    /*fetch("https://theaudiodb.com/api/v1/json/2/search.php?s="+artist)
+    fetch("https://theaudiodb.com/api/v1/json/2/search.php?s="+artist)
     .then(function (response) {
         return response.json();
         })
     .then(function (data) {
-        var url = data.artists[0].strArtistThumb;
-        console.log(url);
-        return url;
-    })*/
-    return "Filler: Need to fix";
+        var artistArt = data.artists[0].strArtistThumb;
+        var artistName = data.artists[0].strArtist;
+
+        var cardEl = $("<div></div>")
+        $("#recommendContainer").append(cardEl); 
+        //Create elements and append it to card
+        var artistNameEl = $("<h3></h3>").text(artistName).css("text-align","center");
+        $(cardEl).append(artistNameEl);
+        var artistArtEl = $("<div><img src='"+artistArt+"' alt='"+artistName+" thumbnail'></div>");
+        $(cardEl).append(artistArtEl); 
+    })
+
 
 }
 
@@ -28,16 +35,7 @@ function getArtistRecommends(artist){
             //var artistName = names[i].Name;
             var artistName = "coldplay";
             //console.log(artistName);
-            var artistArt = getArtistArt(artist);
-            console.log(artistArt);
-            var cardEl = $("<div class='columns'></div>")
-            $("#recommendContainer").append(cardEl); 
-            //Create elements and append it to card
-            var artistNameEl = $("<h3></h3>").text(artistName);
-            $(cardEl).append(artistNameEl);
-            var artistArtEl = $("<div><img src='"+artistArt+"' alt='"+artistName+" thumbnail'></div>");
-            $(cardEl).append(artistArtEl);  
-
+            getArtistArt(artistName); 
         }
     })
 }
@@ -49,23 +47,33 @@ function getAlbums(artistId){
         })
     .then(function (data) {
         var albums = data.album;
-        for (let i = 0; i < 5; i++) {
+
+        // sort albums by score property in descending order
+        albums.sort( function ( a, b ) { return b.intYearReleased - a.intYearReleased; } );
+        for (let i = 0; i < 7; i++) {
+            console.log(albums[i]);
             var albumArt = albums[i].strAlbumThumb;
             var albumName = albums[i].strAlbum;
             var albumYear = albums[i].intYearReleased;
             var albumGenre = albums[i].strStyle;
             var albumLabel = albums[i].strLabel;
             
+            if (!albumGenre) {
+                albumGenre = "Undetermined";
+            }
+            if (!albumLabel) {
+                albumLabel = "None";
+            }
             //Create card and append it to body
             var cardEl = $("<div class='columns'></div>")
             $("#albumContainer").append(cardEl); 
 
-            var leftEl = $("<span class='column is-2'></span>")
+            var leftEl = $("<span class='column is-3'></span>")
             $(cardEl).append(leftEl); 
-            var rightEl = $("<div class='column is-9'></div>")
+            var rightEl = $("<div class='column is-8'></div>")
             $(cardEl).append(rightEl); 
             //Create elements and append it to card
-            var albumArtEl = $("<img src='"+albumArt+"' alt='"+albumName+" thumbnail' height='100%' width='100%' >");
+            var albumArtEl = $("<img src='"+albumArt+"' alt='"+albumName+" thumbnail' >");
             $(leftEl).append(albumArtEl);
             var albumNameEl = $("<h4></h4>").text(albumName);
             var albumYearEl = $("<p></p>").text("Released: "+albumYear);
@@ -92,9 +100,9 @@ function getArtistID(artist){
         //Create card and append it to body
         var cardEl = $("<div class='columns'></div>")
         $("article").prepend(cardEl); 
-        var leftEl = $("<span class='column is-2'></span>")
+        var leftEl = $("<span class='column is-2 is-offset-1'></span>")
         $(cardEl).append(leftEl); 
-        var rightEl = $("<div class='column is-9'></div>")
+        var rightEl = $("<div class='column is-8'></div>")
         $(cardEl).append(rightEl); 
         //Create elements and append it to card
         var artistArtEl = $("<div><img src='"+artistArt+"' alt='"+artistName+" thumbnail'></div>");
