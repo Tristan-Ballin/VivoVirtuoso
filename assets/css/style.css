@@ -54,12 +54,28 @@ h1 {
 }
 
 #app-desc {
-    background-color: rgba(0, 0, 0, 0.699);
-    width: 700px;
-    height: 200px;
+    background-color: rgba(0, 0, 0, 0.753);
+    width: 48%;
+    height: 250px;
     border-radius: 10px;
     padding: 10px;
     margin: auto;
+}
+
+#h2-desc {
+    font-size: 28px;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    text-decoration: underline;
+}
+
+#p-desc {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    margin: 5px;
+    padding: 5px 5px 5px 5px;
 }
 
 #input-container {
@@ -67,7 +83,7 @@ h1 {
 }
 
 #input-box {
-    width: 325px;
+    width: 20%;
     background-color: rgba(0, 0, 0, 0.699);
     border: none;
     color: white;
@@ -75,6 +91,7 @@ h1 {
     border-left: 5px;
     border-radius: 5px;
     padding: 2px 5px 2px 5px;
+    margin: 5px;
 }
 
 #searchButton {
