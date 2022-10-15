@@ -38,7 +38,7 @@ h1 {
 
 
 .banner{
-    background-image: url("/assets/images/orange-crowd.jpg");
+    background-image: url("../images/orange-crowd.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
