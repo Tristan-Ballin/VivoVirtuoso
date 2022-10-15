@@ -35,8 +35,6 @@ h1 {
 
 }
 
-
-
 .banner{
     background-image: url("/assets/images/orange-crowd.jpg");
     background-size: cover;
@@ -83,4 +81,9 @@ h1 {
 
 ::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.699) !important;
+  }
+
+  .past-search {
+    height: 75px;
+    padding: 10px;
   }
