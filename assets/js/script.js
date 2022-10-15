@@ -52,7 +52,7 @@ function getAlbums(artistId){
 
         // sort albums by score property in descending order
         albums.sort( function ( a, b ) { return b.intYearReleased - a.intYearReleased; } );
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 8; i++) {
             console.log(albums[i]);
             var albumArt = albums[i].strAlbumThumb;
             var albumName = albums[i].strAlbum;
