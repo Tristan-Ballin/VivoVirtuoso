@@ -35,16 +35,15 @@ h1 {
 
 }
 
-.banner{
-    position: relative;
-}
 
-.crowd {
-    object-fit: cover;
-    object-position: 50% 58%;
-    overflow: hidden;
-    width: 100%;
-    height: 650px;
+
+.banner{
+    background-image: url("/assets/images/orange-crowd.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 750px;
 }
 
 #f-contain {
@@ -53,10 +52,7 @@ h1 {
 }
 
 #info-box {
-    position: absolute;
     text-align: center;
-    right: 33%;
-    bottom: 33%;
 }
 
 #app-desc {
@@ -64,8 +60,8 @@ h1 {
     width: 700px;
     height: 200px;
     border-radius: 10px;
-    text-align: center;
-    margin: 5px;
+    padding: 10px;
+    margin: auto;
 }
 
 #input-box {
