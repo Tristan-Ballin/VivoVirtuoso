@@ -44,7 +44,7 @@ function getArtistArt(artist){
         //Create elements and append it to card
         var artistNameEl = $("<h3></h3>").text(artistName).css("text-align","center");
         $(cardEl).append(artistNameEl);
-        var artistArtEl = $("<img src='"+artistArt+"' alt='"+artistName+" thumbnail'>");
+        var artistArtEl = $("<img src='"+artistArt+"' alt='"+artistName+" thumbnail' height='100%' width='100%'>");
         $(cardEl).append(artistArtEl); 
     })
 
@@ -102,7 +102,7 @@ function getAlbums(artistId){
                 albumArt = "assets/images/albumPlaceholder.jpg"
             }
             //Create card and append it to body
-            var cardEl = $("<div class='columns column'></div>")
+            var cardEl = $("<div class='columns'></div>")
             $("#albumContainer").append(cardEl); 
 
             var leftEl = $("<span class='column is-3'></span>")
@@ -110,7 +110,7 @@ function getAlbums(artistId){
             var rightEl = $("<div class='column is-8'></div>")
             $(cardEl).append(rightEl); 
             //Create elements and append it to card
-            var albumArtEl = $("<img src='"+albumArt+"' alt='"+albumName+" thumbnail' >");
+            var albumArtEl = $("<img src='"+albumArt+"' alt='"+albumName+" thumbnail' height='100%' width='100%'>");
             $(leftEl).append(albumArtEl);
             var albumNameEl = $("<h3></h3>").text(albumName);
             var albumYearEl = $("<p></p>").text("Released: "+albumYear);
