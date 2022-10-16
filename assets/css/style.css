@@ -1,6 +1,7 @@
 :root {
     --black: #000000;
     --tan: #ab9065;
+    --orange: #FF9800;
 }
 
 body {
@@ -17,25 +18,28 @@ h6 {
     font-weight: 700;
 }
 
-section {
+.nav-bars {
     background-color: var(--black);
 }
 
 #hContain {
     padding: 12px 12px 12px 24px;
-
+    margin-left: 24px;
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 64px;
     text-align: start;
-     color: var(--tan);
+    color: var(--tan);
     font-style: italic;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
 
-
+.vinyl {
+    width: 75%;
+    margin-left: 100px;
+}
 
 .banner{
     background-image: url("../images/orange-crowd.jpg");
@@ -56,31 +60,117 @@ h1 {
 }
 
 #app-desc {
-    background-color: rgba(0, 0, 0, 0.699);
-    width: 700px;
-    height: 200px;
+    background-color: rgba(0, 0, 0, 0.801);
+    width: 900px;
+    height: 250px;
     border-radius: 10px;
     padding: 10px;
     margin: auto;
 }
 
+#h2-desc {
+    font-size: 28px;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    text-decoration: underline;
+}
+
+#p-desc {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    margin: 5px;
+    padding: 5px 5px 5px 5px;
+}
+
+#input-container {
+    margin: 5px;
+}
+
 #input-box {
-    width: 325px;
-    background-color: rgba(0, 0, 0, 0.699);
+    width: 275px;
+    background-color: rgba(0, 0, 0, 0.801);
     border: none;
     color: white;
     font-size: 110%;
     border-left: 5px;
     border-radius: 5px;
-    padding: 2px 5px 2px 5px;
+    padding: 5px 10px 5px 10px;
+    margin: 5px;
 }
 
 #searchButton {
-    height: 25px;
-    width: 65px;
+    background-color: rgba(0, 0, 0, 0.699);
+    color: white;
+    border: none;
     margin: 5px;
+    padding: 2px 5px 2px 5px;
+    height: 44px;
+    width: 65px;
+}
+
+.icon {
+    padding: 5px;
+}
+
+#searchButton:hover {
+    background-color: rgba(0, 0, 0, 0.837);
+    color: rgb(139, 139, 139);
+    border: none;
+    margin: 5px;
+    padding: 2px 5px 2px 5px;
+    height: 44px;
+    width: 65px;
 }
 
 ::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.699) !important;
   }
+
+.past-search {
+    height: 75px;
+    padding: 10px;
+}
+
+#artistContainer {
+    background-color: rgba(0, 0, 0, 0.699);
+    color: aliceblue;
+    border-radius: 10px;
+}
+
+
+#art-bg {
+    background-image: url("../images/bw-stage-artist.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#albumContainer {
+    background-color: rgba(0, 0, 0, 0.699);
+    color: aliceblue;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 30px;
+}
+
+#recommendContainer {
+    background-color: rgba(0, 0, 0, 0.699);
+    color: aliceblue;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.footText {
+    color: var(--orange);
+}
+
+.footer {
+    background-color: var(--black);
+    color: var(--tan);
+    margin-top: 10px;
+}

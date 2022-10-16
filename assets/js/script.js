@@ -1,5 +1,30 @@
 var artistQuery = "coldplay";
+var opacity = 0;
+var intervalID = 0;
 
+// function that fades in the app description slowly
+function fadeIn() {
+    setInterval(show, 50);
+}
+
+function show() {
+    var infoBox = document.getElementById("info-box");
+    opacity = Number(window.getComputedStyle(infoBox)
+                     .getPropertyValue("opacity"));
+    if (opacity < 1) {
+        opacity = opacity + 0.05;
+        infoBox.style.opacity = opacity
+    } else {
+        clearInterval(intervalID);
+    }
+}
+
+// waits 1 second after page load to begin fadeIn  
+  window.addEventListener("load", function() {
+    console.log('Page is loaded');
+    setTimeout(function() {
+        fadeIn(); }, 1000)
+  });
 
 function getArtistArt(artist){
     fetch("https://theaudiodb.com/api/v1/json/2/search.php?s="+artist)
@@ -52,7 +77,7 @@ function getAlbums(artistId){
 
         // sort albums by score property in descending order
         albums.sort( function ( a, b ) { return b.intYearReleased - a.intYearReleased; } );
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 8; i++) {
             console.log(albums[i]);
             var albumArt = albums[i].strAlbumThumb;
             var albumName = albums[i].strAlbum;
