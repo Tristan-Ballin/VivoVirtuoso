@@ -136,6 +136,11 @@ h1 {
 }
 
 #art-bg {
+    background-image: url("../images/microphone.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     margin-top: 0px;
 }
 
@@ -151,7 +156,7 @@ h1 {
 }
 
 
-#albumn-bg {
+#album-bg {
     background-image: url("../images/bw-stage-artist.jpg");
     background-size: cover;
     background-repeat: no-repeat;
