@@ -132,16 +132,26 @@ h1 {
 .past-search {
     height: 75px;
     padding: 10px;
+    
+}
+
+#art-bg {
+    margin-top: 0px;
 }
 
 #artistContainer {
     background-color: rgba(0, 0, 0, 0.699);
     color: aliceblue;
     border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 30px;
+
 }
 
 
-#art-bg {
+#albumn-bg {
     background-image: url("../images/bw-stage-artist.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -164,6 +174,7 @@ h1 {
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding: 30px;
 }
 
 .footText {
