@@ -1,21 +1,29 @@
 var artistQuery = "coldplay";
-var descArray = ["Your favorite artists' discography is right here at your fingertips.\r\n Simply search a musical artist to be shown information about them, and their most recent albums.\r\n On top of that we'll show you similar artists so you can find more of the kind of music you love to listen to! \r\n Then do it all over with any artist you find interesting. \r\n Dive down a musical rabbit hole with us!"];
-var textPosition = 0; 
-var speed = 40;
+var opacity = 0;
+var intervalID = 0;
 
-// function that runs the app description like a typewriter
-function typewriter() {
-    document.querySelector("#p-desc").innerHTML = descArray[0].substring(0, textPosition) + '<span></span>';
-    
-    if(textPosition++ != descArray[0].length)
-      setTimeout(typewriter, speed);
-  }
+// function that fades in the app description slowly
+function fadeIn() {
+    setInterval(show, 50);
+}
 
-// waits 1.5 seconds after page load to begin typewriter  
+function show() {
+    var infoBox = document.getElementById("info-box");
+    opacity = Number(window.getComputedStyle(infoBox)
+                     .getPropertyValue("opacity"));
+    if (opacity < 1) {
+        opacity = opacity + 0.05;
+        infoBox.style.opacity = opacity
+    } else {
+        clearInterval(intervalID);
+    }
+}
+
+// waits 1 second after page load to begin fadeIn  
   window.addEventListener("load", function() {
     console.log('Page is loaded');
     setTimeout(function() {
-        typewriter(); }, 1500)
+        fadeIn(); }, 1000)
   });
 
 function getArtistArt(artist){
