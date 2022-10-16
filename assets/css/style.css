@@ -61,7 +61,7 @@ h1 {
 
 #app-desc {
     background-color: rgba(0, 0, 0, 0.801);
-    width: 48%;
+    width: 900px;
     height: 250px;
     border-radius: 10px;
     padding: 10px;
@@ -89,19 +89,38 @@ h1 {
 }
 
 #input-box {
-    width: 20%;
+    width: 275px;
     background-color: rgba(0, 0, 0, 0.801);
     border: none;
     color: white;
     font-size: 110%;
     border-left: 5px;
     border-radius: 5px;
-    padding: 2px 5px 2px 5px;
+    padding: 5px 10px 5px 10px;
     margin: 5px;
 }
 
 #searchButton {
-    height: 25px;
+    background-color: rgba(0, 0, 0, 0.699);
+    color: white;
+    border: none;
+    margin: 5px;
+    padding: 2px 5px 2px 5px;
+    height: 44px;
+    width: 65px;
+}
+
+.icon {
+    padding: 5px;
+}
+
+#searchButton:hover {
+    background-color: rgba(0, 0, 0, 0.837);
+    color: rgb(139, 139, 139);
+    border: none;
+    margin: 5px;
+    padding: 2px 5px 2px 5px;
+    height: 44px;
     width: 65px;
 }
 
