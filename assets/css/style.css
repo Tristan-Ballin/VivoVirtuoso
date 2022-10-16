@@ -37,7 +37,7 @@ h1 {
 }
 
 .vinyl {
-    width: 75%;
+    width: 100px;
     margin-left: 100px;
 }
 
@@ -100,6 +100,10 @@ h1 {
     margin: 5px;
 }
 
+#input-box::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.699);
+  }
+
 #searchButton {
     background-color: rgba(0, 0, 0, 0.699);
     color: white;
@@ -123,10 +127,6 @@ h1 {
     height: 44px;
     width: 65px;
 }
-
-::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.699) !important;
-  }
 
 .past-search {
     height: 75px;
