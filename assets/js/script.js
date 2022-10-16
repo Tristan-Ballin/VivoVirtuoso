@@ -83,7 +83,6 @@ function getAlbums(artistId){
     .then(function (data) {
         $("#albumContainer").empty();
         var albums = data.album;
-        console.log(albums);
         // sort albums by score property in descending order
         albums.sort( function ( a, b ) { return b.intYearReleased - a.intYearReleased; } );
         for (let i = 0; i < 7; i++) {
@@ -154,6 +153,7 @@ function getArtistID(artist){
         
         appendToHistory(artistName);
         getAlbums(data.artists[0].idArtist);
+        getArtistRecommends(artistName);
     })
 }
 
@@ -166,7 +166,7 @@ function renderSearchHistory() {
 
         var liEl = $("<li class='historyList'></li>").text(element);
         // append to the search history container
-        $("#history").append(liEl);  
+        $("#history").prepend(liEl);  
     }
 }
 
@@ -220,7 +220,7 @@ function initRandArtist(){
 
 function initSearch(search) {
     getArtistID(search);
-    getArtistRecommends(search);
+    
 }
 
 function handleSearchFormSubmit(e) {
@@ -232,20 +232,17 @@ function handleSearchFormSubmit(e) {
     e.preventDefault();
     var search = artistQuery.val().trim();
     getArtistID(search);
-    getArtistRecommends(search);
     artistQuery.val("");
 }
 
 function handleRecommendedArtistClick(e) {
     var search = $(this).children().text().trim();
     getArtistID(search);
-    getArtistRecommends(search);
     artistQuery.val("");
 }
 function handleHistoryClick(e) {
     var search = $(this).text().trim();
     getArtistID(search);
-    getArtistRecommends(search);
     artistQuery.val("");
 }
 
