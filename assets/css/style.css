@@ -42,7 +42,7 @@ h1 {
     margin-right: 75px;
 }
 
-.banner{
+#banner{
     background-image: url("../images/orange-crowd.jpg");
     background-size: cover;
     background-repeat: no-repeat;
