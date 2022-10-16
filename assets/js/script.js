@@ -101,7 +101,7 @@ function getArtistID(artist){
         
         //Create card and append it to body
         var cardEl = $("<section class='columns' id='artistContainer'></section>")
-        $("article").prepend(cardEl); 
+        $(".art-sec").prepend(cardEl); 
         var leftEl = $("<span class='column is-2 is-offset-1'></span>")
         $(cardEl).append(leftEl); 
         var rightEl = $("<div class='column is-8'></div>")
