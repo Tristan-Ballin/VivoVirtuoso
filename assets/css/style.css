@@ -9,15 +9,6 @@ font-family: Arial, Helvetica, sans-serif;
 font-size: 16px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: 700;
-}
-
 #nav-bars {
     background-color: var(--black);
 }
@@ -29,11 +20,27 @@ h6 {
 
 h1 {
     font-size: 64px;
+    font-weight: 800;
     text-align: start;
     color: var(--tan);
     font-style: italic;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
+h2 {
+    font-size: 28px;
+    font-weight: 600;
+    border-bottom: 1px solid white;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: underline;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
 }
 
 #vinyl {
@@ -58,6 +65,7 @@ h1 {
 
 #info-box {
     text-align: center;
+    opacity: 0;
 }
 
 #app-desc {
@@ -72,16 +80,16 @@ h1 {
 #h2-desc {
     font-size: 28px;
     color: white;
-    margin: 5px;
-    padding: 10px;
-    text-decoration: underline;
+    margin: 3px;
+    padding: 5px;
+    border-bottom: 1px solid white;
 }
 
 #p-desc {
     color: white;
     font-size: 18px;
     text-align: center;
-    margin: 5px;
+    margin: 10px;
     padding: 5px 5px 5px 5px;
 }
 
