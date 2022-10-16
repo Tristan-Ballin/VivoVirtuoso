@@ -1,18 +1,19 @@
 var artistQuery = $("#input-box");
-var opacity = 0;
-var intervalID = 0;
+
 
 // function that fades in the app description slowly
 function fadeIn() {
-    setInterval(show, 50);
+    setInterval(show, 25);
 }
 
 function show() {
+    var opacity = 0;
+    var intervalID = 0;
     var infoBox = document.getElementById("info-box");
     opacity = Number(window.getComputedStyle(infoBox)
                      .getPropertyValue("opacity"));
     if (opacity < 1) {
-        opacity = opacity + 0.05;
+        opacity = opacity + 0.025;
         infoBox.style.opacity = opacity
     } else {
         clearInterval(intervalID);
@@ -39,7 +40,7 @@ function getArtistArt(artist){
             artistArt = "assets/images/artistPlaceholder.png"
         }
 
-        var cardEl = $("<div class='recommendedArtists column'></div>")
+        var cardEl = $("<div class='recommendedArtists column is-clickable'></div>")
         $("#recommendContainer").append(cardEl); 
         //Create elements and append it to card
         var artistNameEl = $("<h3></h3>").text(artistName).css("text-align","center");
