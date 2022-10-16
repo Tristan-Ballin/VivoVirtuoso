@@ -138,7 +138,7 @@ h3 {
 }
 
 .past-search {
-    height: 75px;
+    min-height: 75px;
     padding: 10px;
     
 }

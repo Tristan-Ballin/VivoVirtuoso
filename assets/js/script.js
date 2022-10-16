@@ -1,3 +1,5 @@
+
+var searchHistory = [];
 var artistQuery = $("#input-box");
 
 
@@ -45,7 +47,7 @@ function getArtistArt(artist){
         //Create elements and append it to card
         var artistNameEl = $("<h3></h3>").text(artistName).css("text-align","center");
         $(cardEl).append(artistNameEl);
-        var artistArtEl = $("<img src='"+artistArt+"' alt='"+artistName+" thumbnail'>");
+        var artistArtEl = $("<img src='"+artistArt+"' alt='"+artistName+" thumbnail' height='100%' width='100%'>");
         $(cardEl).append(artistArtEl); 
     })
 
@@ -103,7 +105,7 @@ function getAlbums(artistId){
                 albumArt = "assets/images/albumPlaceholder.jpg"
             }
             //Create card and append it to body
-            var cardEl = $("<div class='columns column'></div>")
+            var cardEl = $("<div class='columns'></div>")
             $("#albumContainer").append(cardEl); 
 
             var leftEl = $("<span class='column is-3'></span>")
@@ -111,7 +113,7 @@ function getAlbums(artistId){
             var rightEl = $("<div class='column is-8'></div>")
             $(cardEl).append(rightEl); 
             //Create elements and append it to card
-            var albumArtEl = $("<img src='"+albumArt+"' alt='"+albumName+" thumbnail' >");
+            var albumArtEl = $("<img src='"+albumArt+"' alt='"+albumName+" thumbnail' height='100%' width='100%'>");
             $(leftEl).append(albumArtEl);
             var albumNameEl = $("<h3></h3>").text(albumName);
             var albumYearEl = $("<p></p>").text("Released: "+albumYear);
@@ -150,8 +152,54 @@ function getArtistID(artist){
         var artistDescrEl = $("<p></p>").text(artistDescr);
         $(rightEl).append(artistNameEl, artistDescrEl);  
         
+        appendToHistory(artistName);
         getAlbums(data.artists[0].idArtist);
     })
+}
+
+// Function to display the search history list.
+function renderSearchHistory() {
+    $("#history").empty();
+    // loop through the history array creating a button for each item
+    for (let i = 0; i < searchHistory.length; i++) {
+        const element = searchHistory[i];
+
+        var liEl = $("<li class='historyList'></li>").text(element);
+        // append to the search history container
+        $("#history").append(liEl);  
+    }
+}
+
+// Function to update history in local storage then updates displayed history.
+function appendToHistory(search) {
+    //check for repeated values
+    for (let i = 0; i < searchHistory.length; i++) {
+        const history = searchHistory[i];
+        if (history == search) {
+            return;
+        }
+        
+    }
+
+    // push search term into search history array
+    searchHistory.push(search);
+    localStorage.setItem("artists", JSON.stringify(searchHistory));
+
+    // set search history array to local storage
+    renderSearchHistory();
+}
+
+// Function to get search history from local storage
+function initSearchHistory() {
+    // get search history item from local storage
+    if (localStorage.getItem("artists")!==null) {
+        searchHistory= JSON.parse(localStorage.getItem("artists"));
+    }
+    else{
+        localStorage.setItem("artists", JSON.stringify(searchHistory));
+    }
+    // set search history array equal to what you got from local storage
+    renderSearchHistory();
 }
 
 function initRandArtist(){
@@ -194,10 +242,16 @@ function handleRecommendedArtistClick(e) {
     getArtistRecommends(search);
     artistQuery.val("");
 }
+function handleHistoryClick(e) {
+    var search = $(this).text().trim();
+    getArtistID(search);
+    getArtistRecommends(search);
+    artistQuery.val("");
+}
 
 
+initSearchHistory();
 initRandArtist();
-
 $("#searchButton").on("click", handleSearchFormSubmit);
 $('#input-box').keypress((e) => {
 if (e.which === 13) {
@@ -205,3 +259,4 @@ if (e.which === 13) {
 }
 })
 $(document).on("click", ".recommendedArtists", handleRecommendedArtistClick);
+$(document).on("click", ".historyList", handleHistoryClick);
