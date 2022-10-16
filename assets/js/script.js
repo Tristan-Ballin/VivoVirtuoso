@@ -125,11 +125,11 @@ function getArtistID(artist){
         var artistDescr = data.artists[0].strBiographyEN;
         
         //Create card and append it to body
-        var cardEl = $("<section class='columns' id='artistContainer'></section>")
-        $("article").prepend(cardEl); 
-        var leftEl = $("<span class='column is-2 is-offset-1'></span>")
+        var cardEl = $("<section class='column columns is-10 is-offset-1' id='artistContainer'></section>")
+        $(".art-sec").prepend(cardEl); 
+        var leftEl = $("<span class='column is-2'></span>")
         $(cardEl).append(leftEl); 
-        var rightEl = $("<div class='column is-8'></div>")
+        var rightEl = $("<div class='column is-10'></div>")
         $(cardEl).append(rightEl); 
         //Create elements and append it to card
         var artistArtEl = $("<div><img src='"+artistArt+"' alt='"+artistName+" thumbnail'></div>");
