@@ -12,9 +12,10 @@
 </head>
 <body>
     <section class="nav-bars columns is-marginless">
-        <header id="hContain" class="column is-9">
+        <header id="hContain" class="column is-10 is-flex is-align-items-center">
             <h1>VivoVirtuoso</h1>
         </header>
+        <div class="column is-1 is-flex is-align-items-center"><img src="./assets/images/vinyl-record.png" class="vinyl" alt="vinyl record"></div>
     </section>
     
     <main>
@@ -24,10 +25,7 @@
                         <div class="field column" id="info-box">
                             <div id="app-desc">
                                 <h2 id="h2-desc">Welcome to VivoVirtuoso</h2>
-                                <p class="mt-1" id="p-desc">Your favorite artists' discography is right here at your fingertips. <br>
-                                    Simply search a musical artist to be shown information about them, and their most recent albums. <br>
-                                    On top of that we'll show you similar artists so you can find more of the kind of music you love to listen to! 
-                                    Then do it all over with any artist you find interesting. Dive down a musical rabbit hole with us!</p>
+                                <p class="mt-1" id="p-desc"></p>
                             </div>
                                 <div class="control has-icons-right" id="input-container">
                                     <input class="input placeholder-text" type="search" placeholder="Artist Search" id="input-box" name="artistName">
@@ -45,9 +43,7 @@
         
                 </ul>
             </section>    
-        <!-- add a text box from css framework -->
-        <!-- add a search box -->
-        <!-- add background image -->
+        
     </main>
     
     <article>
@@ -59,6 +55,15 @@
             <aside class="column is-2 is-offset-1" id="recommendContainer"></aside>
         </section>
     </article>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+              <strong class="footText">VivaVirtuoso</strong> by <a href="https://github.com/ThatBallinGuy">Tristan Ballin</a>, <a href="https://github.com/PeteChicchetti">Pete Chicchetti</a>, and <a href="https://github.com/BenjaminCottrell">Ben Cottrell</a>. <br> Licensed under <a href=https://opensource.org/licenses/mit-license.php>MIT</a>. <br>Credit to <a href=https://www.theaudiodb.com>The Audio DB</a> and <a href=https://tastedive.com/read/api>TasteDive</a> for their API's that made this project possible.
+            </p>
+          </div>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous" ></script>
     <script src="./assets/js/script.js"></script>
 </body>

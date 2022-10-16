@@ -1,6 +1,7 @@
 :root {
     --black: #000000;
     --tan: #ab9065;
+    --orange: #FF9800;
 }
 
 body {
@@ -23,16 +24,21 @@ h6 {
 
 #hContain {
     padding: 12px 12px 12px 24px;
-
+    margin-left: 24px;
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 64px;
     text-align: start;
-     color: var(--tan);
+    color: var(--tan);
     font-style: italic;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
+}
+
+.vinyl {
+    width: 75%;
+    margin-left: 100px;
 }
 
 .banner{
@@ -54,7 +60,7 @@ h1 {
 }
 
 #app-desc {
-    background-color: rgba(0, 0, 0, 0.753);
+    background-color: rgba(0, 0, 0, 0.801);
     width: 48%;
     height: 250px;
     border-radius: 10px;
@@ -84,7 +90,7 @@ h1 {
 
 #input-box {
     width: 20%;
-    background-color: rgba(0, 0, 0, 0.699);
+    background-color: rgba(0, 0, 0, 0.801);
     border: none;
     color: white;
     font-size: 110%;
@@ -103,39 +109,49 @@ h1 {
     color: rgba(255, 255, 255, 0.699) !important;
   }
 
-  .past-search {
+.past-search {
     height: 75px;
     padding: 10px;
-  }
+}
 
-  #artistContainer {
+#artistContainer {
     background-color: rgba(0, 0, 0, 0.699);
     color: aliceblue;
     border-radius: 10px;
-  }
+}
 
 
-  #art-bg {
+#art-bg {
     background-image: url("../images/bw-stage-artist.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-  }
+}
 
-  #albumContainer {
+#albumContainer {
     background-color: rgba(0, 0, 0, 0.699);
     color: aliceblue;
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 30px;
-  }
+}
 
-  #recommendContainer {
+#recommendContainer {
     background-color: rgba(0, 0, 0, 0.699);
     color: aliceblue;
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-  }
+}
+
+.footText {
+    color: var(--orange);
+}
+
+.footer {
+    background-color: var(--black);
+    color: var(--tan);
+    margin-top: 10px;
+}
