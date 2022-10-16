@@ -1,5 +1,22 @@
 var artistQuery = "coldplay";
+var descArray = ["Your favorite artists' discography is right here at your fingertips.\r\n Simply search a musical artist to be shown information about them, and their most recent albums.\r\n On top of that we'll show you similar artists so you can find more of the kind of music you love to listen to! \r\n Then do it all over with any artist you find interesting. \r\n Dive down a musical rabbit hole with us!"];
+var textPosition = 0; 
+var speed = 40;
 
+// function that runs the app description like a typewriter
+function typewriter() {
+    document.querySelector("#p-desc").innerHTML = descArray[0].substring(0, textPosition) + '<span></span>';
+    
+    if(textPosition++ != descArray[0].length)
+      setTimeout(typewriter, speed);
+  }
+
+// waits 1.5 seconds after page load to begin typewriter  
+  window.addEventListener("load", function() {
+    console.log('Page is loaded');
+    setTimeout(function() {
+        typewriter(); }, 1500)
+  });
 
 function getArtistArt(artist){
     fetch("https://theaudiodb.com/api/v1/json/2/search.php?s="+artist)
