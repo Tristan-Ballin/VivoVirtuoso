@@ -136,7 +136,11 @@ h1 {
 }
 
 #art-bg {
-    background-image: radial-gradient(grey 5%, rgb(0, 0, 0));
+    background-image: url("../images/microphone.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     margin-top: 0px;
 }
 
