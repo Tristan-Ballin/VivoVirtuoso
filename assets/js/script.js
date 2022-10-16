@@ -1,4 +1,4 @@
-var artistQuery = "coldplay";
+var artistQuery = $("#input-box");
 var opacity = 0;
 var intervalID = 0;
 
@@ -27,7 +27,7 @@ function show() {
   });
 
 function getArtistArt(artist){
-    fetch("https://theaudiodb.com/api/v1/json/2/search.php?s="+artist)
+    fetch("https://theaudiodb.com/api/v1/json/523532/search.php?s="+artist)
     .then(function (response) {
         return response.json();
         })
@@ -55,12 +55,17 @@ function getArtistRecommends(artist){
         })
     .then(function (data) {
         console.log("Data:");
+        var names = data.Similar.Results;
+        console.log(names);
+        if (!names.length) {
+            return;
+        }
+        $("#recommendContainer").empty();
         var headerEl = $("<h2></h2>").text("Similar Artists").css("text-align","center");
         $("#recommendContainer").prepend(headerEl); 
-        var names = data.Similar.Results;
         for (let i = 0; i < names.length; i++) {
-            //var artistName = names[i].Name;
-            var artistName = "coldplay";
+            var artistName = names[i].Name;
+            //var artistName = "coldplay";
             //console.log(artistName);
             getArtistArt(artistName); 
         }
@@ -68,17 +73,17 @@ function getArtistRecommends(artist){
 }
 
 function getAlbums(artistId){
-    fetch("https://theaudiodb.com/api/v1/json/2/album.php?i="+artistId)
+    fetch("https://theaudiodb.com/api/v1/json/523532/album.php?i="+artistId)
     .then(function (response) {
         return response.json();
         })
     .then(function (data) {
+        $("#albumContainer").empty();
         var albums = data.album;
-
         // sort albums by score property in descending order
         albums.sort( function ( a, b ) { return b.intYearReleased - a.intYearReleased; } );
         for (let i = 0; i < 8; i++) {
-            console.log(albums[i]);
+            //console.log(albums[i]);
             var albumArt = albums[i].strAlbumThumb;
             var albumName = albums[i].strAlbum;
             var albumYear = albums[i].intYearReleased;
@@ -114,7 +119,7 @@ function getAlbums(artistId){
 }
 
 function getArtistID(artist){
-    fetch("https://theaudiodb.com/api/v1/json/2/search.php?s="+artist)
+    fetch("https://theaudiodb.com/api/v1/json/523532/search.php?s="+artist)
     .then(function (response) {
         return response.json();
         })
@@ -123,13 +128,14 @@ function getArtistID(artist){
         var artistArt = data.artists[0].strArtistThumb;
         var artistName = data.artists[0].strArtist;
         var artistDescr = data.artists[0].strBiographyEN;
-        
+        $("#art-bg").empty();
         //Create card and append it to body
-        var cardEl = $("<section class='columns' id='artistContainer'></section>")
-        $("article").prepend(cardEl); 
-        var leftEl = $("<span class='column is-2 is-offset-1'></span>")
+        var cardEl = $("<section class='column columns is-10 is-offset-1' id='artistContainer'></section>")
+        $(".art-sec").prepend(cardEl); 
+        var leftEl = $("<span class='column is-2'></span>")
+        
         $(cardEl).append(leftEl); 
-        var rightEl = $("<div class='column is-8'></div>")
+        var rightEl = $("<div class='column is-10'></div>")
         $(cardEl).append(rightEl); 
         //Create elements and append it to card
         var artistArtEl = $("<div><img src='"+artistArt+"' alt='"+artistName+" thumbnail'></div>");
@@ -141,6 +147,24 @@ function getArtistID(artist){
         getAlbums(data.artists[0].idArtist);
     })
 }
-getArtistID(artistQuery);
-getArtistRecommends(artistQuery);
-//getArtistArt("coldplay")
+
+function handleSearchFormSubmit(e) {
+    // Don't continue if there is nothing in the search form
+    console.log("You clicked search");
+    if (!artistQuery.val()) {
+        return;
+    }
+
+    e.preventDefault();
+    var search = artistQuery.val().trim();
+    getArtistID(search);
+    getArtistRecommends(search);
+    artistQuery.val("");
+}
+
+$("#searchButton").on("click", handleSearchFormSubmit);
+$('#input-box').keypress((e) => {
+if (e.which === 13) {
+    handleSearchFormSubmit(e);
+}
+})
