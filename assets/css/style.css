@@ -157,6 +157,10 @@ h3 {
     margin-top: -9px;
 }
 
+#collapse:hover {
+    cursor: pointer;
+    transform: scale(1.5) ;
+}
 
 #art-bg {
     background-image: url("../images/microphone.jpg");
