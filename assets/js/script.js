@@ -78,13 +78,14 @@ function getArtistRecommends(artist){
 }
 
 function getAlbums(artistId){
-    fetch("https://theaudiodb.com/api/v1/json/523532/album.php?i="+artistId)
+    fetch("https://theaudiodb.com/api/v1/json/523532/album.php?i=114282")
     .then(function (response) {
         return response.json();
         })
     .then(function (data) {
         $("#albumContainer").empty();
         var albums = data.album;
+        console.log(albums);
         // sort albums by score property in descending order
         albums.sort( function ( a, b ) { return b.intYearReleased - a.intYearReleased; } );
         for (let i = 0; i < 7; i++) {
@@ -134,6 +135,7 @@ function getArtistID(artist){
         })
     .then(function (data) {
         //parse data
+        console.log(data);
         var artistArt = data.artists[0].strArtistThumb;
         var artistName = data.artists[0].strArtist;
         var artistDescr = data.artists[0].strBiographyEN;
@@ -169,7 +171,7 @@ function renderSearchHistory() {
     for (let i = 0; i < searchHistory.length; i++) {
         const element = searchHistory[i];
 
-        var liEl = $("<li></li>").html("<span class='historyList'>"+element+"</span>");
+        var liEl = $("<li></li>").html("<span class='historyList column'>"+element+"</span>");
         // append to the search history container
         $("#history").prepend(liEl);  
     }
@@ -241,9 +243,13 @@ function handleSearchFormSubmit(e) {
     e.preventDefault();
     var search = artistQuery.val().trim();
     var ampSearch =search.search("&");
+    /*if (search.includes("&")) {
+        var newSearch =search.replace("&");
+        console.log("new & name: "+newSearch.trim());
+    }*/
     if (ampSearch !=-1) {
-        insert = "%26amp;";
-        search=[search.slice(0,ampSearch), insert, search.slice(ampSearch+1)].join('');
+        insert = "amp;";
+        search=[search.slice(0,ampSearch), search.slice(ampSearch+2)].join('');
         console.log("new & name: "+search);
     }
     getArtistID(search);
@@ -264,7 +270,7 @@ function handleCollapseClick(e) {
     if ($("#history").css("display")!="none") {
         $("#history").css("display", "none")
     }else{
-        $("#history").css("display", "block")
+        $("#history").css("display", "flex")
     }
 }
 

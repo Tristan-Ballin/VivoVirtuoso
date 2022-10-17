@@ -151,6 +151,10 @@ h3 {
     text-align: left;
 }
 
+#history{
+    width: 80%;
+}
+
 #art-bg {
     background-image: url("../images/microphone.jpg");
     background-size: cover;
