@@ -281,9 +281,9 @@ h3 {
     
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 345px) {
     h1{ 
-        font-size: 40px;
+        font-size: 44px;
     }
     
 }
