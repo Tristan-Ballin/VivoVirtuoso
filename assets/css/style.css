@@ -147,8 +147,19 @@ h3 {
     
 }
 
-#collapse{
-    text-align: left;
+#search-history {
+    text-decoration: none;
+    padding: 2px 0px 0px 0px;
+    margin: 0px;
+}
+
+#arrow-pos {
+    margin-top: -9px;
+}
+
+#collapse:hover {
+    cursor: pointer;
+    transform: scale(1.5) ;
 }
 
 #history{
