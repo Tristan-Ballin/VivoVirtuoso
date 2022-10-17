@@ -177,6 +177,16 @@ h3 {
     border-top: 1px solid white;
 }
 
+.historyList {
+    margin: 12px;
+    padding: 0px;
+}
+
+.historyList:hover {
+    cursor: pointer;
+    transform: scale(1.1) ;
+}
+
 #art-bg {
     background-image: url("../images/microphone.jpg");
     background-size: cover;
