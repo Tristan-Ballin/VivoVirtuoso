@@ -143,7 +143,12 @@ h3 {
 .past-search {
     min-height: 75px;
     padding: 10px;
+    color: white;
     
+}
+
+#collapse{
+    text-align: left;
 }
 
 #art-bg {
