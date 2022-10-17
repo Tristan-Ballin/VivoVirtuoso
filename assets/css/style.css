@@ -149,21 +149,32 @@ h3 {
 
 #search-history {
     text-decoration: none;
-    padding: 2px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
     margin: 0px;
 }
 
-#arrow-pos {
-    margin-top: -9px;
+#arrow-pos-top {
+    margin-top: 0px;
+    margin-bottom: 6px;
+}
+#arrow-pos-bot {
+    margin-top: -18px;
+    margin-bottom: 9px;
+    display: none;
+    transform: rotate(180deg);
 }
 
-#collapse:hover {
+.collapse:hover {
     cursor: pointer;
     transform: scale(1.5) ;
 }
 
 #history{
     width: 80%;
+    display: none;
+    padding-top: 6px;
+    margin-top: 8px;
+    border-top: 1px solid white;
 }
 
 #art-bg {

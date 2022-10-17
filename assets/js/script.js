@@ -43,7 +43,7 @@ function getArtistArt(artist){
             var artistArt = data.artists[0].strArtistThumb;
             var artistName = data.artists[0].strArtist;
         }
-
+        
         var cardEl = $("<div class='recommendedArtists column is-clickable'></div>")
         $("#recommendContainer").append(cardEl); 
         //Create elements and append it to card
@@ -72,13 +72,19 @@ function getArtistRecommends(artist){
         $("#recommendContainer").prepend(headerEl); 
         for (let i = 0; i < names.length; i++) {
             var artistName = names[i].Name;
+            var ampSearch =artistName.search("&");
+        if (ampSearch !=-1) {
+            insert = encodeURIComponent("&");
+            artistName=[artistName.slice(0,ampSearch), insert, artistName.slice(ampSearch+1)].join('');
+            console.log("new & name: "+artistName);
+        }
             getArtistArt(artistName); 
         }
     })
 }
 
 function getAlbums(artistId){
-    fetch("https://theaudiodb.com/api/v1/json/523532/album.php?i=114282")
+    fetch("https://theaudiodb.com/api/v1/json/523532/album.php?i="+artistId)
     .then(function (response) {
         return response.json();
         })
@@ -243,13 +249,9 @@ function handleSearchFormSubmit(e) {
     e.preventDefault();
     var search = artistQuery.val().trim();
     var ampSearch =search.search("&");
-    /*if (search.includes("&")) {
-        var newSearch =search.replace("&");
-        console.log("new & name: "+newSearch.trim());
-    }*/
     if (ampSearch !=-1) {
-        insert = "amp;";
-        search=[search.slice(0,ampSearch), search.slice(ampSearch+2)].join('');
+        insert = encodeURIComponent("&");
+        search=[search.slice(0,ampSearch), insert, search.slice(ampSearch+1)].join('');
         console.log("new & name: "+search);
     }
     getArtistID(search);
@@ -258,19 +260,35 @@ function handleSearchFormSubmit(e) {
 
 function handleRecommendedArtistClick(e) {
     var search = $(this).children().text().trim();
+    var ampSearch =search.search("&");
+    if (ampSearch !=-1) {
+        insert = encodeURIComponent("&");
+        search=[search.slice(0,ampSearch), insert, search.slice(ampSearch+1)].join('');
+        console.log("new & name: "+search);
+    }
     getArtistID(search);
     artistQuery.val("");
 }
 function handleHistoryClick(e) {
     var search = $(this).text().trim();
+    var ampSearch =search.search("&");
+    if (ampSearch !=-1) {
+        insert = encodeURIComponent("&");
+        search=[search.slice(0,ampSearch), insert, search.slice(ampSearch+1)].join('');
+        console.log("new & name: "+search);
+    }
     getArtistID(search);
     artistQuery.val("");
 }
 function handleCollapseClick(e) {
     if ($("#history").css("display")!="none") {
         $("#history").css("display", "none")
+        $("#arrow-pos-top").css("display", "flex")
+        $("#arrow-pos-bot").css("display", "none")
     }else{
         $("#history").css("display", "flex")
+        $("#arrow-pos-bot").css("display", "flex")
+        $("#arrow-pos-top").css("display", "none")
     }
 }
 
@@ -284,4 +302,4 @@ if (e.which === 13) {
 })
 $(document).on("click", ".recommendedArtists", handleRecommendedArtistClick);
 $(document).on("click", ".historyList", handleHistoryClick);
-$("#collapse").on("click", handleCollapseClick);
+$(".collapse").on("click", handleCollapseClick);
