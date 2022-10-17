@@ -43,7 +43,7 @@ function getArtistArt(artist){
             var artistArt = data.artists[0].strArtistThumb;
             var artistName = data.artists[0].strArtist;
         }
-
+        
         var cardEl = $("<div class='recommendedArtists column is-clickable'></div>")
         $("#recommendContainer").append(cardEl); 
         //Create elements and append it to card
@@ -72,6 +72,12 @@ function getArtistRecommends(artist){
         $("#recommendContainer").prepend(headerEl); 
         for (let i = 0; i < names.length; i++) {
             var artistName = names[i].Name;
+            var ampSearch =artistName.search("&");
+        if (ampSearch !=-1) {
+            insert = encodeURIComponent("&");
+            artistName=[artistName.slice(0,ampSearch), insert, artistName.slice(ampSearch+1)].join('');
+            console.log("new & name: "+artistName);
+        }
             getArtistArt(artistName); 
         }
     })
@@ -85,6 +91,7 @@ function getAlbums(artistId){
     .then(function (data) {
         $("#albumContainer").empty();
         var albums = data.album;
+        console.log(albums);
         // sort albums by score property in descending order
         albums.sort( function ( a, b ) { return b.intYearReleased - a.intYearReleased; } );
         for (let i = 0; i < 7; i++) {
@@ -134,6 +141,7 @@ function getArtistID(artist){
         })
     .then(function (data) {
         //parse data
+        console.log(data);
         var artistArt = data.artists[0].strArtistThumb;
         var artistName = data.artists[0].strArtist;
         var artistDescr = data.artists[0].strBiographyEN;
@@ -169,7 +177,7 @@ function renderSearchHistory() {
     for (let i = 0; i < searchHistory.length; i++) {
         const element = searchHistory[i];
 
-        var liEl = $("<li></li>").html("<span class='historyList'>"+element+"</span>");
+        var liEl = $("<li></li>").html("<span class='historyList column'>"+element+"</span>");
         // append to the search history container
         $("#history").prepend(liEl);  
     }
@@ -242,7 +250,7 @@ function handleSearchFormSubmit(e) {
     var search = artistQuery.val().trim();
     var ampSearch =search.search("&");
     if (ampSearch !=-1) {
-        insert = "%26amp;";
+        insert = encodeURIComponent("&");
         search=[search.slice(0,ampSearch), insert, search.slice(ampSearch+1)].join('');
         console.log("new & name: "+search);
     }
@@ -252,19 +260,35 @@ function handleSearchFormSubmit(e) {
 
 function handleRecommendedArtistClick(e) {
     var search = $(this).children().text().trim();
+    var ampSearch =search.search("&");
+    if (ampSearch !=-1) {
+        insert = encodeURIComponent("&");
+        search=[search.slice(0,ampSearch), insert, search.slice(ampSearch+1)].join('');
+        console.log("new & name: "+search);
+    }
     getArtistID(search);
     artistQuery.val("");
 }
 function handleHistoryClick(e) {
     var search = $(this).text().trim();
+    var ampSearch =search.search("&");
+    if (ampSearch !=-1) {
+        insert = encodeURIComponent("&");
+        search=[search.slice(0,ampSearch), insert, search.slice(ampSearch+1)].join('');
+        console.log("new & name: "+search);
+    }
     getArtistID(search);
     artistQuery.val("");
 }
 function handleCollapseClick(e) {
     if ($("#history").css("display")!="none") {
         $("#history").css("display", "none")
+        $("#arrow-pos-top").css("display", "flex")
+        $("#arrow-pos-bot").css("display", "none")
     }else{
-        $("#history").css("display", "block")
+        $("#history").css("display", "flex")
+        $("#arrow-pos-bot").css("display", "flex")
+        $("#arrow-pos-top").css("display", "none")
     }
 }
 
@@ -278,4 +302,4 @@ if (e.which === 13) {
 })
 $(document).on("click", ".recommendedArtists", handleRecommendedArtistClick);
 $(document).on("click", ".historyList", handleHistoryClick);
-$("#collapse").on("click", handleCollapseClick);
+$(".collapse").on("click", handleCollapseClick);
