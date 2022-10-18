@@ -48,7 +48,12 @@ h3 {
     width: 100px;
     padding: 5px;
     margin-right: 100px;
+    transition: transform .7s ease-in-out;
 }
+
+#vinyl:hover {
+    transform: rotate(90deg);
+  }
 
 #intro {
     margin-bottom: 0px;
@@ -324,9 +329,9 @@ h3 {
     
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 345px) {
     h1{ 
-        font-size: 40px;
+        font-size: 44px;
     }
     
 }
