@@ -30,8 +30,7 @@ function show() {
   });
 
 function getArtistArt(artist){
-
-    fetch("https://theaudiodb.com/api/v1/json/"+tadbKey+"/search.php?s="+artist)
+    fetch("https://theaudiodb.com/api/v1/json/523532/search.php?s="+artist)
     .then(function (response) {
         return response.json();
         })
@@ -58,7 +57,7 @@ function getArtistArt(artist){
 }
 
 function getArtistRecommends(artist){
-    fetch("https://floating-headland-95050.herokuapp.com/https://tastedive.com/api/similar?q="+artist+"&k="+tastediveKey+"-ClassPro-DVSLXXJW&limit=5")
+    fetch("https://floating-headland-95050.herokuapp.com/https://tastedive.com/api/similar?q="+artist+"&k=443399-ClassPro-DVSLXXJW&limit=5")
     .then(function (response) {
         return response.json();
         })
@@ -77,6 +76,7 @@ function getArtistRecommends(artist){
         if (ampSearch !=-1) {
             insert = encodeURIComponent("&");
             artistName=[artistName.slice(0,ampSearch), insert, artistName.slice(ampSearch+1)].join('');
+            console.log("new & name: "+artistName);
         }
             getArtistArt(artistName); 
         }
@@ -84,13 +84,14 @@ function getArtistRecommends(artist){
 }
 
 function getAlbums(artistId){
-    fetch("https://theaudiodb.com/api/v1/json/"+tadbKey+"/album.php?i="+artistId)
+    fetch("https://theaudiodb.com/api/v1/json/523532/album.php?i="+artistId)
     .then(function (response) {
         return response.json();
         })
     .then(function (data) {
         $("#albumContainer").empty();
         var albums = data.album;
+        console.log(albums);
         // sort albums by score property in descending order
         albums.sort( function ( a, b ) { return b.intYearReleased - a.intYearReleased; } );
         for (let i = 0; i < 7; i++) {
@@ -134,8 +135,7 @@ function getAlbums(artistId){
 }
 
 function getArtistID(artist){
-    
-    fetch("https://theaudiodb.com/api/v1/json/"+tadbKey+"/search.php?s="+artist)
+    fetch("https://theaudiodb.com/api/v1/json/523532/search.php?s="+artist)
     .then(function (response) {
         return response.json();
         })
@@ -252,6 +252,7 @@ function handleSearchFormSubmit(e) {
     if (ampSearch !=-1) {
         insert = encodeURIComponent("&");
         search=[search.slice(0,ampSearch), insert, search.slice(ampSearch+1)].join('');
+        console.log("new & name: "+search);
     }
     getArtistID(search);
     artistQuery.val("");
@@ -263,6 +264,7 @@ function handleRecommendedArtistClick(e) {
     if (ampSearch !=-1) {
         insert = encodeURIComponent("&");
         search=[search.slice(0,ampSearch), insert, search.slice(ampSearch+1)].join('');
+        console.log("new & name: "+search);
     }
     getArtistID(search);
     artistQuery.val("");
@@ -273,6 +275,7 @@ function handleHistoryClick(e) {
     if (ampSearch !=-1) {
         insert = encodeURIComponent("&");
         search=[search.slice(0,ampSearch), insert, search.slice(ampSearch+1)].join('');
+        console.log("new & name: "+search);
     }
     getArtistID(search);
     artistQuery.val("");
@@ -289,27 +292,7 @@ function handleCollapseClick(e) {
     }
 }
 
-        
-// This calls the API, just update the url to have your key's name.
-async function fetchKey() {
-    const url = 'https://yorkieportunus.herokuapp.com/store/tadbKey'
-    const response = await fetch(url);
-    const key = await response.json();
-    return key;
-}
-fetchKey().then((key) => {
-    tadbKey = key.apiKey;
-});  
-// This calls the API, just update the url to have your key's name.
-async function fetchTasteDiveKey() {
-    const url = 'https://yorkieportunus.herokuapp.com/store/tastediveKey'
-    const response = await fetch(url);
-    const key = await response.json();
-    return key;
-}
-fetchTasteDiveKey().then((key) => {
-    tastediveKey = key.apiKey;
-});
+
 
 initSearchHistory();
 initRandArtist();
