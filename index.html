@@ -11,15 +11,16 @@
     
 </head>
 <body>
+<!----- Header Text and Vinyl image in Nav ----->
     <section class="columns is-justify-content-center" id="nav-bars">
         <header id="hContain" class="column is-6 is-flex is-align-items-center">
             <h1>VivoVirtuoso</h1>
         </header>
         <div class="column is-6 is-flex is-align-items-center is-justify-content-end is-hidden-mobile"><img src="./assets/images/vinyl-record.png" id="vinyl" alt="vinyl record"></div>
     </section>
-    
+<!----- Main Section Banner Image, Info Box/Text and Search Bar ----->   
     <main>
-        <div class="columns" id="intro">
+        <div class="columns" id="info-contain">
             <div class="column is-full" id="f-contain">
                 <figure class="is-flex is-justify-content-center" id="banner">
                         <div class="field is-flex is-flex-direction-column is-align-items-center is-justify-content-center" id="info-box">
@@ -31,35 +32,33 @@
                                     <input class="input" type="search" placeholder="Artist Search" id="input-box" name="artistName">
                                     <button class="button is-responsive" id="searchButton"><i class='fa-solid fa-magnifying-glass icon'></i></button>
                                 </div>
-                                
                         </div>    
                 </figure> 
             </div>
         </div>    
-    
-        
     </main>
-    
+<!----- Artist Section Background, Search History, JS Appended Content ----->   
     <article>
         <section id="art-bg">
             <section class="past-search columns is-flex-direction-column is-align-items-center is-mobile">
                 <h3 id="search-history" >Search History</h3>
                 <span id="arrow-pos-top"><i class="fa-solid fa-caret-down collapse"></i></span>
                 <ul id="history" class="column columns is-flex-wrap-wrap is-justify-content-center is-mobile">
+            <!----- JS Dynamic Search History ----->
                 </ul>
                 <span id="arrow-pos-bot"><i class="fa-solid fa-caret-down collapse"></i></span>
             </section>
             <section class="columns column" id="artist-sec">
-
+        <!----- JS Dynamic Artist Image and Description ----->
             </section>
         </section>
         <section class="columns" id="album-bg">
             <div class="column is-5 is-offset-2" id="albumContainer"></div>
             <aside class="columns is-flex-direction-column is-justify-content-space-around column is-2 is-offset-1" id="recommendContainer"></aside>
-
+    <!----- JS Dynamic Album Results and Similar Artists ----->
         </section>
     </article>
-
+<!----- Footer with Links to GitHub for Developers ----->
     <footer class="columns is-justify-content-center footer" id="footer">
         <div class="content has-text-centered">
             <p>
@@ -67,7 +66,7 @@
             </p>
           </div>
     </footer>
-
+<!----- JS Intro Slider on Page load ----->
     <div class="intro" >
             <div class="intro-text">
                 <h5 class="hide">
