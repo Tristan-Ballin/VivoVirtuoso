@@ -11,16 +11,17 @@
     
 </head>
 <body>
+<!----- Header Text and Vinyl image in Nav ----->
     <section class="columns is-justify-content-center" id="nav-bars">
-        <header id="hContain" class="column is-6 is-flex is-align-items-center">
+        <header id="header-contain" class="column is-6 is-flex is-align-items-center">
             <h1>VivoVirtuoso</h1>
         </header>
         <div class="column is-6 is-flex is-align-items-center is-justify-content-end is-hidden-mobile"><img src="./assets/images/vinyl-record.png" id="vinyl" alt="vinyl record"></div>
     </section>
-    
+<!----- Main Section Banner Image, Info Box/Text and Search Bar ----->   
     <main>
-        <div class="columns" id="intro">
-            <div class="column is-full" id="f-contain">
+        <div class="columns" id="info-contain">
+            <div class="column is-full" id="fig-contain">
                 <figure class="is-flex is-justify-content-center" id="banner">
                         <div class="field is-flex is-flex-direction-column is-align-items-center is-justify-content-center" id="info-box">
                             <div id="app-desc">
@@ -29,45 +30,44 @@
                             </div>
                                 <div class="columns control" id="input-container">
                                     <input class="input" type="search" placeholder="Artist Search" id="input-box" name="artistName">
-                                    <button class="button is-responsive" id="searchButton"><i class='fa-solid fa-magnifying-glass icon'></i></button>
+                                    <button class="button is-responsive" id="search-button"><i class='fa-solid fa-magnifying-glass icon'></i></button>
                                 </div>
-                                
                         </div>    
                 </figure> 
             </div>
         </div>    
-    
-        
     </main>
-    
+<!----- Artist Section Background, Search History, JS Appended Content ----->   
     <article>
         <section id="art-bg">
             <section class="past-search columns is-flex-direction-column is-align-items-center is-mobile">
                 <h3 id="search-history" >Search History</h3>
                 <span id="arrow-pos-top"><i class="fa-solid fa-caret-down collapse"></i></span>
                 <ul id="history" class="column columns is-flex-wrap-wrap is-justify-content-center is-mobile">
+            <!----- JS Dynamic Search History ----->
                 </ul>
                 <span id="arrow-pos-bot"><i class="fa-solid fa-caret-down collapse"></i></span>
             </section>
             <section class="columns column" id="artist-sec">
-
+        <!----- JS Dynamic Artist Image and Description ----->
             </section>
         </section>
+<!----- Album Section Background, JS Appended Content ----->        
         <section class="columns" id="album-bg">
-            <div class="column is-5 is-offset-2" id="albumContainer"></div>
-            <aside class="columns is-flex-direction-column is-justify-content-space-around column is-2 is-offset-1" id="recommendContainer"></aside>
-
+            <div class="column is-5 is-offset-2" id="album-container"></div>
+            <aside class="columns is-flex-direction-column is-justify-content-space-around column is-2 is-offset-1" id="recommend-container"></aside>
+    <!----- JS Dynamic Album Results and Similar Artists ----->
         </section>
     </article>
-
+<!----- Footer with Links to GitHub for Developers ----->
     <footer class="columns is-justify-content-center footer" id="footer">
         <div class="content has-text-centered">
             <p>
-              <strong class="footText">VivoVirtuoso</strong> by <a href="https://github.com/ThatBallinGuy">Tristan Ballin</a>, <a href="https://github.com/PeteChicchetti">Pete Chicchetti</a>, and <a href="https://github.com/BenjaminCottrell">Ben Cottrell</a>. <br> Licensed under <a href=https://opensource.org/licenses/mit-license.php>MIT</a>. <br>Credit to <a href=https://www.theaudiodb.com>The Audio DB</a> and <a href=https://tastedive.com/read/api>TasteDive</a> for their API's that made this project possible.
+              <strong class="foot-text">VivoVirtuoso</strong> by <a href="https://github.com/ThatBallinGuy">Tristan Ballin</a>, <a href="https://github.com/PeteChicchetti">Pete Chicchetti</a>, and <a href="https://github.com/BenjaminCottrell">Ben Cottrell</a>. <br> Licensed under <a href=https://opensource.org/licenses/mit-license.php>MIT</a>. <br>Credit to <a href=https://www.theaudiodb.com>The Audio DB</a> and <a href=https://tastedive.com/read/api>TasteDive</a> for their API's that made this project possible.
             </p>
           </div>
     </footer>
-
+<!----- JS Intro Slider on Page load ----->
     <div class="intro" >
             <div class="intro-text">
                 <h5 class="hide">
