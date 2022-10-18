@@ -46,7 +46,7 @@ function getArtistArt(artist){
         var artistName = data.artists[0].strArtist;
     
         var cardEl = $("<div class='recommendedArtists column is-clickable'></div>")
-        $("#recommendContainer").append(cardEl); 
+        $("#recommend-container").append(cardEl); 
         //Create elements and append it to card
         var artistNameEl = $("<h3></h3>").text(artistName).css("text-align","center");
         $(cardEl).append(artistNameEl);
@@ -68,9 +68,9 @@ function getArtistRecommends(artist){
         if (!names.length) {
             return;
         }
-        $("#recommendContainer").empty();
+        $("#recommend-container").empty();
         var headerEl = $("<h2></h2>").text("Similar Artists").css("text-align","center");
-        $("#recommendContainer").prepend(headerEl); 
+        $("#recommend-container").prepend(headerEl); 
         for (let i = 0; i < names.length; i++) {
             var artistName = names[i].Name;
             var ampSearch =artistName.search("&");
@@ -90,7 +90,7 @@ function getAlbums(artistId){
         return response.json();
         })
     .then(function (data) {
-        $("#albumContainer").empty();
+        $("#album-container").empty();
         var albums = data.album;
         console.log(albums);
         // sort albums by score property in descending order
@@ -119,7 +119,7 @@ function getAlbums(artistId){
             }
             //Create card and append it to body
             var cardEl = $("<div class='columns'></div>")
-            $("#albumContainer").append(cardEl); 
+            $("#album-container").append(cardEl); 
 
             var leftEl = $("<span class='column is-3'></span>")
             $(cardEl).append(leftEl); 
@@ -137,7 +137,7 @@ function getAlbums(artistId){
         }
         console.log(artistId);
         var cardEl = $("<div class='columns'></div>");
-        $("#albumContainer").append(cardEl); 
+        $("#album-container").append(cardEl); 
         //var finalTextEl = $("<p></p>").text("For more artist information click here");
         
         var tadbImgEl = $("<a href='https://www.theaudiodb.com/artist/"+artistId+"'></a>").html("<img src='https://www.theaudiodb.com/images/logo_new_12.png' alt='The Audio Data Base logo' height='60%' width='60%'>");
@@ -163,9 +163,9 @@ function getArtistID(artist){
 
         
 
-        $("#artistContainer").remove();
+        $("#artist-container").remove();
         //Create card and append it to body
-        var cardEl = $("<section class='column columns is-10 is-offset-1' id='artistContainer'></section>")
+        var cardEl = $("<section class='column columns is-10 is-offset-1' id='artist-container'></section>")
         $("#artist-sec").append(cardEl); 
         var leftEl = $("<span class='column is-2'></span>")
         
@@ -192,7 +192,7 @@ function renderSearchHistory() {
     for (let i = 0; i < searchHistory.length; i++) {
         const element = searchHistory[i];
 
-        var liEl = $("<li></li>").html("<span class='historyList column'>"+element+"</span>");
+        var liEl = $("<li></li>").html("<span class='history-list column'>"+element+"</span>");
         // append to the search history container
         $("#history").prepend(liEl);  
     }
@@ -318,6 +318,6 @@ if (e.which === 13) {
 }
 })
 $(document).on("click", ".recommendedArtists", handleRecommendedArtistClick);
-$(document).on("click", ".historyList", handleHistoryClick);
+$(document).on("click", ".history-list", handleHistoryClick);
 $(".collapse").on("click", handleCollapseClick);
 $("#vinyl").on("click", initRandArtist);

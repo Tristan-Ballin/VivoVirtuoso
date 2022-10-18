@@ -1,20 +1,23 @@
+/*----- Root Colors -----*/
 :root {
     --black: #000000;
     --tan: #ab9065;
     --orange: #FF9800;
 }
 
+/*----- Body Element -----*/
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 
+/*----- Header, Title, Vinyl Img -----*/
 #nav-bars {
     background-color: var(--black);
     margin-bottom: 0px;
 }
 
-#hContain {
+#header-contain {
     padding: 12px 12px 12px 12px;
     margin-left: 75px;
 }
@@ -26,22 +29,6 @@ h1 {
     color: var(--orange);
     font-style: italic;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-h2 {
-    font-size: 28px;
-    font-weight: 600;
-    border-bottom: 1px solid white;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-}
-
-h3 {
-    font-size: 20px;
-    font-weight: 500;
-    text-decoration: underline;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
 }
 
 #vinyl {
@@ -56,8 +43,14 @@ h3 {
     transform: rotate(180deg);
   }
 
+
+/*----- Banner, Info Container, Welcome Info, Search Bar and Search Button -----*/
 #info-contain {
     margin-bottom: 0px;
+}
+
+#fig-contain {
+    padding: 0px 0px;
 }
 
 #banner{
@@ -67,11 +60,6 @@ h3 {
     background-attachment: fixed;
     background-position: center;
     height: 750px;
-}
-
-#f-contain {
-    padding: 0px 0px;
-
 }
 
 #info-box {
@@ -85,6 +73,14 @@ h3 {
     min-height: 250px;
     border-radius: 10px;
     padding: 10px;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 600;
+    border-bottom: 1px solid white;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
 }
 
 #h2-desc {
@@ -123,9 +119,19 @@ h3 {
     color: rgba(255, 255, 255, 0.699);
   }
 
-#searchButton {
+#search-button {
     background-color: rgba(0, 0, 0, 0.699);
     color: white;
+    border: none;
+    margin: 5px;
+    padding: 2px 5px 2px 5px;
+    height: 44px;
+    width: 65px;
+}
+
+#search-button:hover {
+    background-color: rgba(0, 0, 0, 0.837);
+    color: rgb(139, 139, 139);
     border: none;
     margin: 5px;
     padding: 2px 5px 2px 5px;
@@ -137,14 +143,15 @@ h3 {
     padding: 5px;
 }
 
-#searchButton:hover {
-    background-color: rgba(0, 0, 0, 0.837);
-    color: rgb(139, 139, 139);
-    border: none;
-    margin: 5px;
-    padding: 2px 5px 2px 5px;
-    height: 44px;
-    width: 65px;
+/*----- Artist Background Img, Search History, Open Caret, JS Appended History, Close Caret, Artist Section with JS -----*/
+#art-bg {
+    background-image: url("../images/microphone.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin-top: 0px;
+    margin-bottom: 12px;
 }
 
 .past-search {
@@ -159,21 +166,14 @@ h3 {
     margin: 0px;
 }
 
-#arrow-pos-top {
-    margin-top: 0px;
-    margin-bottom: 6px;
-}
-
-#arrow-pos-bot {
-    margin-top: 6px;
-    margin-bottom: 9px;
-    display: none;
-    transform: rotate(180deg);
-}
-
 .collapse:hover {
     cursor: pointer;
     transform: scale(1.5) ;
+}
+
+#arrow-pos-top {
+    margin-top: 0px;
+    margin-bottom: 6px;
 }
 
 #history{
@@ -185,27 +185,24 @@ h3 {
     border-radius: 10px;
 }
 
-.historyList {
+.history-list {
     margin: 12px;
     padding: 0px;
 }
 
-.historyList:hover {
+.history-list:hover {
     cursor: pointer;
     transform: scale(1.1) ;
 }
 
-#art-bg {
-    background-image: url("../images/microphone.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    margin-top: 0px;
-    margin-bottom: 12px;
+#arrow-pos-bot {
+    margin-top: 6px;
+    margin-bottom: 9px;
+    display: none;
+    transform: rotate(180deg);
 }
 
-#artistContainer {
+#artist-container {
     background-color: rgba(0, 0, 0, 0.699);
     color: aliceblue;
     border-radius: 10px;
@@ -213,7 +210,7 @@ h3 {
     padding: 30px;
 }
 
-
+/*----- Album Section Background, Album and Similar Artist Containers -----*/
 #album-bg {
     background-image: url("../images/bw-stage-artist.jpg");
     background-size: cover;
@@ -222,7 +219,15 @@ h3 {
     background-position: center;
 }
 
-#albumContainer {
+h3 {
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: underline;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+#album-container {
     background-color: rgba(0, 0, 0, 0.699);
     color: aliceblue;
     border-radius: 10px;
@@ -232,7 +237,7 @@ h3 {
     padding: 30px;
 }
 
-#recommendContainer {
+#recommend-container {
     background-color: rgba(0, 0, 0, 0.699);
     color: aliceblue;
     border-radius: 10px;
@@ -241,10 +246,7 @@ h3 {
     padding: 30px;
 }
 
-.footText {
-    color: var(--orange);
-}
-
+/*----- Footer -----*/
 #footer {
     background-color: var(--black);
     color: var(--tan);
@@ -253,6 +255,11 @@ h3 {
     padding: 24px;
 }
 
+.foot-text {
+    color: var(--orange);
+}
+
+/*----- Intro Slider on Page Load -----*/
 .intro {
     background: var(--black);
     position: fixed;
@@ -292,6 +299,7 @@ h3 {
     display: inline-block;
 }
 
+/*----- Mobile Optimization -----*/
 @media only screen and (max-width: 1024px) {
     #hContain {
         margin-left: 50px;
@@ -300,12 +308,12 @@ h3 {
 }
 
 @media only screen and (max-width: 768px) {
-    #albumContainer, #recommendContainer, #artistContainer {
+    #album-container, #recommend-container, #artist-container {
         margin: 10px;
         padding: 18px;
     }
 
-    #hContain {
+    #header-contain {
         margin-left: 0px;
         justify-content: center;
     }
