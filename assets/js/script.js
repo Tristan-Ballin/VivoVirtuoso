@@ -45,7 +45,7 @@ function getArtistArt(artist){
         var artistName = data.artists[0].strArtist;
         //adds placeholder
         if (!artistArt) {
-            artistArt = "assets/images/albumPlaceholder.jpg"
+            artistArt = "assets/images/artistPlaceholder.jpg"
         }
 
         var cardEl = $("<div class='recommendedArtists column is-clickable'></div>")
@@ -159,6 +159,9 @@ function getArtistID(artist){
         var artistArt = data.artists[0].strArtistThumb;
         var artistName = data.artists[0].strArtist;
         var artistDescr = data.artists[0].strBiographyEN;
+        if (!artistArt) {
+            artistArt = "assets/images/artistPlaceholder.jpg"
+        }
         //clear and append data
         $("#artist-container").remove();
         //Create cards and append it to body
