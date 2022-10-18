@@ -267,9 +267,20 @@ h3 {
         justify-content: center;
     }
 
+    #banner{
+        background-image: url("../images/orange-crowd.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        height: 750px;
+    }
+
     #nav-bars {
         margin-right: -13px;
     }
+
+    
     
     #app-desc {
         margin-left: 22px;
@@ -282,6 +293,7 @@ h3 {
     }
     
     #art-bg {
+        background-image: url("../images/microphone.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -292,6 +304,7 @@ h3 {
     }
     
     #album-bg {
+        background-image: url("../images/bw-stage-artist.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
