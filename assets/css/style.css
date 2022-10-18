@@ -5,8 +5,8 @@
 }
 
 body {
-font-family: Arial, Helvetica, sans-serif;
-font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
 
 #nav-bars {
@@ -53,7 +53,7 @@ h3 {
 }
 
 #vinyl:hover {
-    transform: rotate(90deg);
+    transform: rotate(180deg);
   }
 
 #intro {
@@ -151,7 +151,6 @@ h3 {
     min-height: 75px;
     padding: 10px;
     color: white;
-    
 }
 
 #search-history {
@@ -164,8 +163,9 @@ h3 {
     margin-top: 0px;
     margin-bottom: 6px;
 }
+
 #arrow-pos-bot {
-    margin-top: -18px;
+    margin-top: 6px;
     margin-bottom: 9px;
     display: none;
     transform: rotate(180deg);
@@ -177,11 +177,12 @@ h3 {
 }
 
 #history{
+    background-color: rgba(0, 0, 0, 0.699);
     width: 80%;
     display: none;
     padding-top: 6px;
     margin-top: 8px;
-    border-top: 1px solid white;
+    border-radius: 10px;
 }
 
 .historyList {
@@ -207,7 +208,6 @@ h3 {
 #artistContainer {
     background-color: rgba(0, 0, 0, 0.699);
     color: aliceblue;
-    border-radius: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
     padding: 30px;
