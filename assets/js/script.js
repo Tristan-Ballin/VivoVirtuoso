@@ -42,14 +42,9 @@ function getArtistArt(artist){
         })
     .then(function (data) {
 
-        if (!data.artists) {
-            var artistArt = "assets/images/artistPlaceholder.png"
-            var artistName = artist;
-        }else{
-            var artistArt = data.artists[0].strArtistThumb;
-            var artistName = data.artists[0].strArtist;
-        }
-        
+        var artistArt = data.artists[0].strArtistThumb;
+        var artistName = data.artists[0].strArtist;
+    
         var cardEl = $("<div class='recommendedArtists column is-clickable'></div>")
         $("#recommendContainer").append(cardEl); 
         //Create elements and append it to card
@@ -63,7 +58,7 @@ function getArtistArt(artist){
 }
 
 function getArtistRecommends(artist){
-    fetch("https://floating-headland-95050.herokuapp.com/https://tastedive.com/api/similar?q="+artist+"&k=443399-ClassPro-DVSLXXJW&limit=5")
+    fetch("https://floating-headland-95050.herokuapp.com/https://tastedive.com/api/similar?q="+artist+"&k=443399-ClassPro-DVSLXXJW&limit=5&type=music")
     .then(function (response) {
         return response.json();
         })
@@ -100,7 +95,11 @@ function getAlbums(artistId){
         console.log(albums);
         // sort albums by score property in descending order
         albums.sort( function ( a, b ) { return b.intYearReleased - a.intYearReleased; } );
-        for (let i = 0; i < 7; i++) {
+        var length = albums.length;
+        if (length>=8) {
+            length=8;
+        }
+        for (let i = 0; i < length; i++) {
             
             var albumArt = albums[i].strAlbumThumb;
             
@@ -136,6 +135,16 @@ function getAlbums(artistId){
             $(rightEl).append(albumNameEl, albumYearEl, albumGenreEl, albumLabelEl);  
             
         }
+        console.log(artistId);
+        var cardEl = $("<div class='columns'></div>");
+        $("#albumContainer").append(cardEl); 
+        //var finalTextEl = $("<p></p>").text("For more artist information click here");
+        
+        var tadbImgEl = $("<a href='https://www.theaudiodb.com/artist/"+artistId+"'></a>").html("<img src='https://www.theaudiodb.com/images/logo_new_12.png' alt='The Audio Data Base logo' height='60%' width='60%'>");
+        $(cardEl).append(/*finalTextEl, */tadbImgEl);  
+        
+
+
 
     })
 }
@@ -217,9 +226,11 @@ function initSearchHistory() {
     // get search history item from local storage
     if (localStorage.getItem("artists")!==null) {
         searchHistory= JSON.parse(localStorage.getItem("artists"));
+        getArtistID(searchHistory[searchHistory.length-1]);
     }
     else{
         localStorage.setItem("artists", JSON.stringify(searchHistory));
+        initRandArtist()
     }
     // set search history array equal to what you got from local storage
     renderSearchHistory();
@@ -243,7 +254,6 @@ function initRandArtist(){
 
 function initSearch(search) {
     getArtistID(search);
-    
 }
 
 function handleSearchFormSubmit(e) {
@@ -301,7 +311,6 @@ function handleCollapseClick(e) {
 
 
 initSearchHistory();
-initRandArtist();
 $("#searchButton").on("click", handleSearchFormSubmit);
 $('#input-box').keypress((e) => {
 if (e.which === 13) {
@@ -311,3 +320,4 @@ if (e.which === 13) {
 $(document).on("click", ".recommendedArtists", handleRecommendedArtistClick);
 $(document).on("click", ".historyList", handleHistoryClick);
 $(".collapse").on("click", handleCollapseClick);
+$("#vinyl").on("click", initRandArtist);
