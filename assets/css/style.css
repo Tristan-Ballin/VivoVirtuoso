@@ -282,12 +282,20 @@ h3 {
     }
     
     #art-bg {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
         margin-bottom: 0px;
         margin-right: -13px;
         padding: 12px 24px 36px 12px;
     }
     
     #album-bg {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
         margin-right: -13px;
         padding: 12px;
     }
