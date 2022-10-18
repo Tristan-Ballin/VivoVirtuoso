@@ -252,14 +252,51 @@ h3 {
     padding: 24px;
 }
 
+.intro {
+    background: var(--black);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-text {
+    color: var(--orange);
+    font-size: 68px;
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.slider {
+    background: rgb(35, 34, 34);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+}
+
+.hide {
+    background: var(--black);
+    overflow: hidden;
+}
+
+.hide span {
+    transform: translateY(100%);
+    display: inline-block;
+}
+
 @media only screen and (max-width: 1024px) {
     #hContain {
         margin-left: 50px;
     }
 
 }
-
-
 
 @media only screen and (max-width: 768px) {
     #albumContainer, #recommendContainer, #artistContainer {
