@@ -2,6 +2,12 @@
 var searchHistory = [];
 var artistQuery = $("#input-box");
 
+// Intro slider on page load
+const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
+
+tl.to( ".text", { y: "0%", duration: 2, stagger: 0.25 });
+tl.to( ".slider", { y: "-100%", duration: 2});
+tl.to( ".intro", { y: "-100%", duration: 1 } , "-=2");
 
 // function that fades in the app description slowly
 function fadeIn() {
@@ -26,7 +32,7 @@ function show() {
   window.addEventListener("load", function() {
     console.log('Page is loaded');
     setTimeout(function() {
-        fadeIn(); }, 1000)
+        fadeIn(); }, 3000)
   });
 
 function getArtistArt(artist){
