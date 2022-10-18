@@ -49,6 +49,7 @@ h3 {
     padding: 5px;
     margin-right: 100px;
     transition: transform .7s ease-in-out;
+    cursor: pointer;
 }
 
 #vinyl:hover {
