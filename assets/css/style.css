@@ -345,7 +345,7 @@ h3 {
         padding: 12px 24px 36px 12px;
     }
     
-    #album-bg {
+        #album-bg {
         background-image: url("../images/bw-stage-artist.jpg");
         background-size: cover;
         background-repeat: no-repeat;
