@@ -45,7 +45,7 @@ function getArtistArt(artist){
         var artistName = data.artists[0].strArtist;
         //adds placeholder
         if (!artistArt) {
-            artistArt = "assets/images/artistPlaceholder.jpg"
+            artistArt = "assets/images/artistPlaceholder.png"
         }
 
         var cardEl = $("<div class='recommendedArtists column is-clickable'></div>")
@@ -86,7 +86,7 @@ function getArtistRecommends(artist){
         }
     })
 }
-
+// function to get the 8 most recent albums
 function getAlbums(artistId){
     fetch("https://theaudiodb.com/api/v1/json/523532/album.php?i="+artistId)
     .then(function (response) {
@@ -140,7 +140,7 @@ function getAlbums(artistId){
         //adds tadb image with link to the artist page
         var cardEl = $("<div class='columns'></div>");
         $("#album-container").append(cardEl);
-        var tadbImgEl = $("<a href='https://www.theaudiodb.com/artist/"+artistId+"'></a>").html("<img src='https://www.theaudiodb.com/images/logo_new_12.png' alt='The Audio Data Base logo' height='60%' width='60%'>");
+        var tadbImgEl = $("<a href='https://www.theaudiodb.com/artist/"+artistId+"' target='_blank'></a>").html("<img src='https://www.theaudiodb.com/images/logo_new_12.png' alt='The Audio Data Base logo' height='60%' width='60%'>");
         $(cardEl).append(tadbImgEl);  
         
 
@@ -160,7 +160,7 @@ function getArtistID(artist){
         var artistName = data.artists[0].strArtist;
         var artistDescr = data.artists[0].strBiographyEN;
         if (!artistArt) {
-            artistArt = "assets/images/artistPlaceholder.jpg"
+            artistArt = "assets/images/artistPlaceholder.png"
         }
         //clear and append data
         $("#artist-container").remove();
@@ -172,12 +172,14 @@ function getArtistID(artist){
         var rightEl = $("<div class='column is-10'></div>")
         $(cardEl).append(rightEl); 
         //Create elements and append it to card
-        var artistArtEl = $("<img src='"+artistArt+"' alt='"+artistName+" thumbnail'>");
+        var artistArtEl = $("<img src='"+artistArt+"' alt='"+artistName+" thumbnail' height='100%' width='100%'>");
         $(leftEl).append(artistArtEl);  
         var artistNameEl = $("<h2></h2>").text(artistName);
         var artistDescrEl = $("<p></p>").text(artistDescr);
         $(rightEl).append(artistNameEl, artistDescrEl);  
-        
+        //scroll to top
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
         appendToHistory(artistName);
         getAlbums(data.artists[0].idArtist);
         getArtistRecommends(artistName);
