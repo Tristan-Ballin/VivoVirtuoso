@@ -1,6 +1,7 @@
 //Global variables
 var searchHistory = [];
 var artistQuery = $("#input-box");
+const proxyUrl = 'https://floating-headland-95050.herokuapp.com/';
 
 // Intro slider on page load
 const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
@@ -36,7 +37,7 @@ function show() {
 
 //gets art for recommended artists
 function getArtistArt(artist){
-    fetch("https://theaudiodb.com/api/v1/json/523532/search.php?s="+artist)
+    fetch(proxyUrl+"https://theaudiodb.com/api/v1/json/523532/search.php?s="+artist)
     .then(function (response) {
         return response.json();
         })
@@ -61,7 +62,7 @@ function getArtistArt(artist){
 }
 //gets 5 recommended artists from tastedive
 function getArtistRecommends(artist){
-    fetch("https://floating-headland-95050.herokuapp.com/https://tastedive.com/api/similar?q="+artist+"&k=443399-ClassPro-DVSLXXJW&limit=5&type=music")
+    fetch(proxyUrl+"https://tastedive.com/api/similar?q="+artist+"&k=443399-ClassPro-DVSLXXJW&limit=5&type=music")
     .then(function (response) {
         return response.json();
         })
@@ -88,7 +89,7 @@ function getArtistRecommends(artist){
 }
 // function to get the 8 most recent albums
 function getAlbums(artistId){
-    fetch("https://theaudiodb.com/api/v1/json/523532/album.php?i="+artistId)
+    fetch(proxyUrl+"https://theaudiodb.com/api/v1/json/523532/album.php?i="+artistId)
     .then(function (response) {
         return response.json();
         })
@@ -150,7 +151,7 @@ function getAlbums(artistId){
 }
 //fetch artist id from tadb using artist name
 function getArtistID(artist){
-    fetch("https://theaudiodb.com/api/v1/json/523532/search.php?s="+artist)
+    fetch(proxyUrl+"https://theaudiodb.com/api/v1/json/523532/search.php?s="+artist)
     .then(function (response) {
         return response.json();
         })
@@ -240,7 +241,7 @@ function initSearchHistory() {
 function initRandArtist(){
     var rand = "111"+Math.floor(Math.random()*1000);
 
-    fetch("https://theaudiodb.com/api/v1/json/523532/artist.php?i="+rand)
+    fetch(proxyUrl+"https://theaudiodb.com/api/v1/json/523532/artist.php?i="+rand)
     .then(function (response) {
         return response.json();
         })
